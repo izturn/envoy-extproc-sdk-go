@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	ep "github.com/wrossmorrow/envoy-extproc-sdk-go"
 )
 
@@ -20,25 +22,31 @@ func (s noopRequestProcessor) GetOptions() *ep.ProcessingOptions {
 }
 
 func (s noopRequestProcessor) ProcessRequestHeaders(ctx *ep.RequestContext, headers map[string][]string) error {
+	log.Panicln("noop ProcessRequestHeaders")
 	return ctx.ContinueRequest()
 }
 
 func (s noopRequestProcessor) ProcessRequestBody(ctx *ep.RequestContext, body []byte) error {
+	log.Panicln("noop ProcessRequestBody")
 	return ctx.ContinueRequest()
 }
 
 func (s noopRequestProcessor) ProcessRequestTrailers(ctx *ep.RequestContext, trailers map[string][]string) error {
+	log.Panicln("noop ProcessRequestTrailers")
 	return ctx.ContinueRequest()
 }
 
 func (s noopRequestProcessor) ProcessResponseHeaders(ctx *ep.RequestContext, headers map[string][]string) error {
+	log.Panicln("noop ProcessResponseHeaders")
 	return ctx.ContinueRequest()
 }
 
 func (s noopRequestProcessor) ProcessResponseBody(ctx *ep.RequestContext, body []byte) error {
+	log.Panicln("noop ProcessResponseBody")
 	return ctx.ContinueRequest()
 }
 
 func (s noopRequestProcessor) ProcessResponseTrailers(ctx *ep.RequestContext, trailers map[string][]string) error {
+	log.Panicln("noop ProcessResponseTrailers")
 	return ctx.ContinueRequest()
 }

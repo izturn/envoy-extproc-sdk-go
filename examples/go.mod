@@ -22,4 +22,4 @@ require (
 	google.golang.org/protobuf v1.31.0 // indirect
 )
 
-replace github.com/wrossmorrow/envoy-extproc-sdk-go => ../
+// replace github.com/wrossmorrow/envoy-extproc-sdk-go => ../

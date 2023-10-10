@@ -35,6 +35,7 @@ func main() {
 
 	} else {
 		_, exists := processors[args[0]]
+		log.Println("the sub command: ", args[0])
 		if !exists {
 			log.Fatalf("Processor \"%s\" not defined.", args[0])
 		}
