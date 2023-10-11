@@ -22,23 +22,23 @@ func (s timerRequestProcessor) GetOptions() *ep.ProcessingOptions {
 }
 
 func (s timerRequestProcessor) ProcessRequestHeaders(ctx *ep.RequestContext, headers map[string][]string) error {
-	log.Panicln("timer ProcessRequestHeaders")
+	log.Println("timer ProcessRequestHeaders")
 	ctx.OverwriteHeader("x-extproc-started-ns", strconv.FormatInt(ctx.Started.UnixNano(), 10))
 	return ctx.ContinueRequest()
 }
 
 func (s timerRequestProcessor) ProcessRequestBody(ctx *ep.RequestContext, body []byte) error {
-	log.Panicln("timer ProcessRequestBody")
+	log.Println("timer ProcessRequestBody")
 	return ctx.ContinueRequest()
 }
 
 func (s timerRequestProcessor) ProcessRequestTrailers(ctx *ep.RequestContext, trailers map[string][]string) error {
-	log.Panicln("timer ProcessRequestTrailers")
+	log.Println("timer ProcessRequestTrailers")
 	return ctx.ContinueRequest()
 }
 
 func (s timerRequestProcessor) ProcessResponseHeaders(ctx *ep.RequestContext, headers map[string][]string) error {
-	log.Panicln("timer ProcessResponseHeaders")
+	log.Println("timer ProcessResponseHeaders")
 	finished := time.Now()
 	duration := time.Since(ctx.Started)
 
@@ -50,7 +50,7 @@ func (s timerRequestProcessor) ProcessResponseHeaders(ctx *ep.RequestContext, he
 }
 
 func (s timerRequestProcessor) ProcessResponseBody(ctx *ep.RequestContext, body []byte) error {
-	log.Panicln("timer ProcessResponseBody")
+	log.Println("timer ProcessResponseBody")
 	finished := time.Now()
 	duration := time.Since(ctx.Started)
 
@@ -62,6 +62,6 @@ func (s timerRequestProcessor) ProcessResponseBody(ctx *ep.RequestContext, body 
 }
 
 func (s timerRequestProcessor) ProcessResponseTrailers(ctx *ep.RequestContext, trailers map[string][]string) error {
-	log.Panicln("timer ProcessResponseTrailers")
+	log.Println("timer ProcessResponseTrailers")
 	return ctx.ContinueRequest()
 }

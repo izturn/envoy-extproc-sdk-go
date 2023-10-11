@@ -22,31 +22,31 @@ func (s noopRequestProcessor) GetOptions() *ep.ProcessingOptions {
 }
 
 func (s noopRequestProcessor) ProcessRequestHeaders(ctx *ep.RequestContext, headers map[string][]string) error {
-	log.Panicln("noop ProcessRequestHeaders")
+	log.Println("noop ProcessRequestHeaders")
 	return ctx.ContinueRequest()
 }
 
 func (s noopRequestProcessor) ProcessRequestBody(ctx *ep.RequestContext, body []byte) error {
-	log.Panicln("noop ProcessRequestBody")
+	log.Println("noop ProcessRequestBody")
 	return ctx.ContinueRequest()
 }
 
 func (s noopRequestProcessor) ProcessRequestTrailers(ctx *ep.RequestContext, trailers map[string][]string) error {
-	log.Panicln("noop ProcessRequestTrailers")
+	log.Println("noop ProcessRequestTrailers")
 	return ctx.ContinueRequest()
 }
 
 func (s noopRequestProcessor) ProcessResponseHeaders(ctx *ep.RequestContext, headers map[string][]string) error {
-	log.Panicln("noop ProcessResponseHeaders")
+	log.Println("noop ProcessResponseHeaders")
 	return ctx.ContinueRequest()
 }
 
 func (s noopRequestProcessor) ProcessResponseBody(ctx *ep.RequestContext, body []byte) error {
-	log.Panicln("noop ProcessResponseBody")
+	log.Println("noop ProcessResponseBody")
 	return ctx.ContinueRequest()
 }
 
 func (s noopRequestProcessor) ProcessResponseTrailers(ctx *ep.RequestContext, trailers map[string][]string) error {
-	log.Panicln("noop ProcessResponseTrailers")
+	log.Println("noop ProcessResponseTrailers")
 	return ctx.ContinueRequest()
 }
