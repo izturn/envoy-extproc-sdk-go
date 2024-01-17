@@ -30,7 +30,7 @@ func parseArgs(args []string) (port *int, opts *ep.ProcessingOptions, nonFlagArg
 	rootCmd := flag.NewFlagSet("root", flag.ExitOnError)
 	port = rootCmd.Int("port", 50051, "the gRPC port.")
 
-	opts = ep.NewOptions()
+	opts = ep.NewDefaultOptions()
 
 	rootCmd.BoolVar(&opts.LogStream, "log-stream", false, "log the stream or not.")
 	rootCmd.BoolVar(&opts.LogPhases, "log-phases", false, "log the phases or not.")

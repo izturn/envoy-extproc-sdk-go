@@ -1,4 +1,4 @@
-module github.com/wrossmorrow/envoy-extproc-sdk-go/examples/timer
+module github.com/wrossmorrow/envoy-extproc-sdk-go/examples
 
 go 1.21
 
@@ -24,4 +24,4 @@ require (
 	google.golang.org/protobuf v1.31.0 // indirect
 )
 
-// replace github.com/wrossmorrow/envoy-extproc-sdk-go => ../
+ replace github.com/wrossmorrow/envoy-extproc-sdk-go => ../
