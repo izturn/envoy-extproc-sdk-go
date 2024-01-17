@@ -30,7 +30,7 @@ func parsedArgs(args []string) (port *int, opts *ep.ProcessingOptions, nonFlagAr
 	rootCmd := flag.NewFlagSet("root", flag.ExitOnError)
 	port = rootCmd.Int("port", 50051, "the gRPC port.")
 
-	opts = ep.NewDefaultOptions()
+	opts = ep.NewOptions()
 
 	rootCmd.BoolVar(&opts.LogStream, "log-stream", false, "log the stream or not.")
 	rootCmd.BoolVar(&opts.LogPhases, "log-phases", false, "log the phases or not.")
@@ -48,19 +48,6 @@ func main() {
 	args := os.Args
 	if len(args) < 2 {
 		log.Fatal("Passing a processor is required.")
-<<<<<<< HEAD
-
-	} else if len(args) > 1 {
-		log.Fatal("Only a single processor can be served at once.")
-
-	} else {
-		_, exists := processors[args[0]]
-		log.Println("the sub command: ", args[0])
-		if !exists {
-			log.Fatalf("Processor \"%s\" not defined.", args[0])
-		}
-=======
->>>>>>> feat/cmd-args
 	}
 
 	cmd := args[1]

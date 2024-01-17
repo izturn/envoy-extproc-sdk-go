@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"strconv"
 	"time"
 
@@ -20,30 +19,11 @@ func (s *timerRequestProcessor) GetOptions() *ep.ProcessingOptions {
 	return s.opts
 }
 
-<<<<<<< HEAD
-func (s timerRequestProcessor) ProcessRequestHeaders(ctx *ep.RequestContext, headers map[string][]string) error {
-	log.Println("timer ProcessRequestHeaders")
-=======
 func (s *timerRequestProcessor) ProcessRequestHeaders(ctx *ep.RequestContext, headers map[string][]string) error {
->>>>>>> feat/cmd-args
 	ctx.OverwriteHeader("x-extproc-started-ns", strconv.FormatInt(ctx.Started.UnixNano(), 10))
 	return ctx.ContinueRequest()
 }
 
-<<<<<<< HEAD
-func (s timerRequestProcessor) ProcessRequestBody(ctx *ep.RequestContext, body []byte) error {
-	log.Println("timer ProcessRequestBody")
-	return ctx.ContinueRequest()
-}
-
-func (s timerRequestProcessor) ProcessRequestTrailers(ctx *ep.RequestContext, trailers map[string][]string) error {
-	log.Println("timer ProcessRequestTrailers")
-	return ctx.ContinueRequest()
-}
-
-func (s timerRequestProcessor) ProcessResponseHeaders(ctx *ep.RequestContext, headers map[string][]string) error {
-	log.Println("timer ProcessResponseHeaders")
-=======
 func (s *timerRequestProcessor) ProcessRequestBody(ctx *ep.RequestContext, body []byte) error {
 	return ctx.ContinueRequest()
 }
@@ -53,7 +33,6 @@ func (s *timerRequestProcessor) ProcessRequestTrailers(ctx *ep.RequestContext, t
 }
 
 func (s *timerRequestProcessor) ProcessResponseHeaders(ctx *ep.RequestContext, headers map[string][]string) error {
->>>>>>> feat/cmd-args
 	finished := time.Now()
 	duration := time.Since(ctx.Started)
 
@@ -64,12 +43,7 @@ func (s *timerRequestProcessor) ProcessResponseHeaders(ctx *ep.RequestContext, h
 	return ctx.ContinueRequest()
 }
 
-<<<<<<< HEAD
-func (s timerRequestProcessor) ProcessResponseBody(ctx *ep.RequestContext, body []byte) error {
-	log.Println("timer ProcessResponseBody")
-=======
 func (s *timerRequestProcessor) ProcessResponseBody(ctx *ep.RequestContext, body []byte) error {
->>>>>>> feat/cmd-args
 	finished := time.Now()
 	duration := time.Since(ctx.Started)
 
@@ -80,12 +54,7 @@ func (s *timerRequestProcessor) ProcessResponseBody(ctx *ep.RequestContext, body
 	return ctx.ContinueRequest()
 }
 
-<<<<<<< HEAD
-func (s timerRequestProcessor) ProcessResponseTrailers(ctx *ep.RequestContext, trailers map[string][]string) error {
-	log.Println("timer ProcessResponseTrailers")
-=======
 func (s *timerRequestProcessor) ProcessResponseTrailers(ctx *ep.RequestContext, trailers map[string][]string) error {
->>>>>>> feat/cmd-args
 	return ctx.ContinueRequest()
 }
 
