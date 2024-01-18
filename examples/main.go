@@ -16,14 +16,15 @@ type processor interface {
 }
 
 var processors = map[string]processor{
-	"noop":    &noopRequestProcessor{},
-	"trivial": &trivialRequestProcessor{},
-	"timer":   &timerRequestProcessor{},
-	"data":    &dataRequestProcessor{},
-	"digest":  &digestRequestProcessor{},
-	"dedup":   &dedupRequestProcessor{},
-	"masker":  &maskerRequestProcessor{},
-	"echo":    &echoRequestProcessor{},
+	"noop":     &noopRequestProcessor{},
+	"trivial":  &trivialRequestProcessor{},
+	"timer":    &timerRequestProcessor{},
+	"data":     &dataRequestProcessor{},
+	"digest":   &digestRequestProcessor{},
+	"dedup":    &dedupRequestProcessor{},
+	"masker":   &maskerRequestProcessor{},
+	"echo":     &echoRequestProcessor{},
+	"big-body": &bigBodyRequestProcessor{},
 }
 
 func parseArgs(args []string) (port *int, opts *ep.ProcessingOptions, nonFlagArgs []string) {
@@ -58,7 +59,7 @@ func main() {
 
 	port, opts, nonFlagArgs := parseArgs(os.Args[2:])
 	if err := proc.Init(opts, nonFlagArgs); err != nil {
-		log.Fatalf("Initialize the processor is failed: %w.", err)
+		log.Fatalf("Initialize the processor is failed: %v.", err.Error())
 	}
 	defer proc.Finish()
 
