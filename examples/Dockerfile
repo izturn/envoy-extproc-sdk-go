@@ -1,4 +1,4 @@
-FROM docker.m.daocloud.io/ubuntu:22.04
+FROM docker.m.daocloud.io/busybox
 
 COPY ./grpc_health_probe /bin/grpc_health_probe
 RUN chmod +x /bin/grpc_health_probe
@@ -10,6 +10,6 @@ ARG EXAMPLE=noop
 
 EXPOSE 50051
 
-CMD [ "extproc", "noop"]
+CMD [ "extproc", "big-body" ]
 
 
