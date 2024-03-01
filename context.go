@@ -255,7 +255,7 @@ func (rc *RequestContext) UpdateHeader(name string, value string, action string)
 		corev3.HeaderValueOption_HeaderAppendAction_value[action],
 	)
 	h := &corev3.HeaderValueOption{
-		Header:       &corev3.HeaderValue{Key: name, Value: value},
+		Header:       &corev3.HeaderValue{Key: name, RawValue: []byte(value)},
 		AppendAction: aa,
 	}
 	hm.SetHeaders = append(hm.SetHeaders, h)
